@@ -1,0 +1,106 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "game-spa": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/game-spa",
+      "sourceRoot": "projects/game-spa/src",
+      "prefix": "starwars",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/game-spa",
+            "index": "projects/game-spa/src/index.html",
+            "main": "projects/game-spa/src/main.ts",
+            "polyfills": "projects/game-spa/src/polyfills.ts",
+            "tsConfig": "projects/game-spa/tsconfig.app.json",
+            "assets": [
+              "projects/game-spa/src/favicon.ico",
+              "projects/game-spa/src/assets"
+            ],
+            "styles": [
+              "projects/game-spa/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/game-spa/src/environments/environment.ts",
+                  "with": "projects/game-spa/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "game-spa:build:production"
+            },
+            "development": {
+              "browserTarget": "game-spa:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "game-spa:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/game-spa/src/test.ts",
+            "polyfills": "projects/game-spa/src/polyfills.ts",
+            "tsConfig": "projects/game-spa/tsconfig.spec.json",
+            "karmaConfig": "projects/game-spa/karma.conf.js",
+            "assets": [
+              "projects/game-spa/src/favicon.ico",
+              "projects/game-spa/src/assets"
+            ],
+            "styles": [
+              "projects/game-spa/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "game-spa"
+}
