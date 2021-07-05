@@ -49,6 +49,14 @@
                 {
                   "replace": "projects/game-spa/src/environments/environment.ts",
                   "with": "projects/game-spa/src/environments/environment.prod.ts"
+                },
+                {
+                  "replace": "projects/game-spa/src/environments/urls.ts",
+                  "with": "projects/game-spa/src/environments/urls.prod.ts"
+                },
+                {
+                  "replace": "projects/game-spa/src/environments/logger.ts",
+                  "with": "projects/game-spa/src/environments/logger.prod.ts"
                 }
               ],
               "outputHashing": "all"
