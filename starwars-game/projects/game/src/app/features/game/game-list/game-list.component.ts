@@ -11,7 +11,7 @@ import { GameService } from '../services/game.service';
 export class GameListComponent implements OnInit {
   games: GameDto[] = [];
   searchItem = '';
-
+  itemsPerPage = [ 10, 25, 50, 100 ];
   constructor(private gameService: GameService) { }
 
   ngOnInit(): void {
