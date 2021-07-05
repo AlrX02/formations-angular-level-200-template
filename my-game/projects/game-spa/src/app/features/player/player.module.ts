@@ -7,12 +7,12 @@ import { Profile } from '../../models/profile';
 import { Observable, of } from 'rxjs';
 import { environment } from 'projects/game-spa/src/environments/environment';
 
-const mockService: ProfileService = {
-  id: 1,
-  save(profile: Profile): Observable<Profile>  {
-    return of(profile);
-  }
-}
+// const mockService: ProfileService = {
+//   id: 1,
+//   save(profile: Profile): Observable<Profile>  {
+//     return of(profile);
+//   }
+// }
 
 class FakeProfileService extends ProfileService {
   save(profile: Profile): Observable<Profile>  {
