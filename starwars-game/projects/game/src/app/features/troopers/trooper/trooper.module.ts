@@ -10,6 +10,9 @@ import { TrooperListComponent } from './trooper-list/trooper-list.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    TrooperListComponent
   ]
 })
 export class TrooperModule { }

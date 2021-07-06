@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { TrooperDto } from 'projects/game/src/app/core/models/trooper.dto';
 import { ApplicationState } from 'projects/game/src/app/reducers';
+import { loadTroopersOnState } from '../../store/actions/troopers.actions';
 import { selectAllAliveTroopersQuery, selectAllTroopersQuery } from '../../store/queries/troopers.selectors';
 
 @Component({
@@ -19,6 +20,11 @@ export class TrooperListComponent implements OnInit {
       select(selectAllAliveTroopersQuery)
     ).subscribe(items => this.troopers = items);
 
+    //this.store.dispatch(loadTroopersOnState());
+  }
+
+  clickToLoad() {
+    this.store.dispatch(loadTroopersOnState());
   }
 
 }

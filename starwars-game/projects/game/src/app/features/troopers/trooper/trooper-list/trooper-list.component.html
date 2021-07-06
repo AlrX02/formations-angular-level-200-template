@@ -1,1 +1,7 @@
-<p>trooper-list works!</p>
+<h1>Enemies</h1>
+
+<button (click)="clickToLoad()">Load enemies</button>
+
+<div *ngFor="let item of troopers">
+  {{ item.matricule}}
+</div>
