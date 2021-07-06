@@ -10,6 +10,9 @@ import { SideBarComponent } from './shared/components/side-bar/side-bar.componen
 import { BoolToTextPipe } from './shared/pipes/bool-to-text.pipe';
 import { BoolToColorDirective } from './shared/directives/bool-to-color.directive';
 import { FormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
+import { TrooperModule } from './features/troopers/trooper/trooper.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,11 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    GameModule
+    GameModule,
+    TrooperModule,
+    StoreModule.forRoot(reducers, {
+      metaReducers
+    })
   ],
   providers: [],
   bootstrap: [AppComponent, HeaderComponent, SideBarComponent]
