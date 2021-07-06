@@ -8,7 +8,7 @@ import { GameDto } from '../../../core/models/game.dto';
 //   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GameTableComponent implements OnInit {
-  @Input() games: GameDto[] = [];
+  @Input() games!: GameDto[] | null;
 
   constructor() { }
 

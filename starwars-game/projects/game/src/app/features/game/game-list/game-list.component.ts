@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { Observable, Subject, Subscription } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { GameDto } from '../../../core/models/game.dto';
+import { SearchService } from '../../../shared/services/search.service';
 import { GameService } from '../services/game.service';
 
 @Component({
@@ -9,24 +11,39 @@ import { GameService } from '../services/game.service';
   styleUrls: ['./game-list.component.css']
 })
 export class GameListComponent implements OnInit, OnDestroy {
+
   games: GameDto[] = [];
+  gamesResult: GameDto[] = [];
   searchItem = '';
   itemsPerPage = [ 10, 25, 50, 100 ];
   private subscriptions: Subscription[] = [];
 
-  constructor(private gameService: GameService) { }
+  listGame$ !: Observable<GameDto[]>;
+  listGame2$ !: Observable<GameDto[]>;
+
+  private subjectToClose = new Subject<boolean>();
+
+  constructor(private gameService: GameService, private searchService: SearchService) { }
 
   ngOnDestroy(): void {
     this.subscriptions.forEach(item => item.unsubscribe());
+
+    this.subjectToClose.next(true);
+    this.subjectToClose.unsubscribe();
   }
 
   ngOnInit(): void {
-    const obs$ = this.gameService.getAll(3);
+    // this.searchService.state.subscribe(value => this.games = this.games.filter(item => item.title.startsWith(value)));
 
-    this.subscriptions.push(obs$.subscribe(items => this.games = items));
+    this.listGame$ = this.gameService.getAll(3);
+    this.listGame2$ = this.gameService.getAll(3).pipe(
+      takeUntil(this.subjectToClose)
+    );
 
-    this.subscriptions.push(obs$.subscribe(items => this.games = items));
-    this.subscriptions.push(obs$.subscribe(items => this.games = items ));
+    // this.subscriptions.push(obs$.subscribe(items => this.games = items));
+
+    // this.subscriptions.push(obs$.subscribe(items => this.games = items));
+    // this.subscriptions.push(obs$.subscribe(items => this.games = items ));
 
     // Producteur
     const monObservable$ = new Observable(observer => {
