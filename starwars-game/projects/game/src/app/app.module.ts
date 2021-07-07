@@ -29,7 +29,6 @@ import { WeaponModule } from './features/weapon/weapon.module';
     GameModule,
     TrooperModule,
     PlayerModule,
-    WeaponModule,
     StoreModule.forRoot(reducers, {
       metaReducers
     })
