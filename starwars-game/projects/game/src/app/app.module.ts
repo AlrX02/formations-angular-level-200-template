@@ -13,7 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
 import { TrooperModule } from './features/troopers/trooper/trooper.module';
-
+import { PlayerModule } from 'player';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +27,7 @@ import { TrooperModule } from './features/troopers/trooper/trooper.module';
     FormsModule,
     GameModule,
     TrooperModule,
+    PlayerModule,
     StoreModule.forRoot(reducers, {
       metaReducers
     })
