@@ -2,13 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'starwars-player',
-  template: `
-    <p>
-      player works!
-    </p>
-  `,
-  styles: [
-  ]
+  templateUrl: './player.component.html',
+  styleUrls: ['./player.component.css']
 })
 export class PlayerComponent implements OnInit {
 

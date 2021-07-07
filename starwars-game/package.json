@@ -5,9 +5,15 @@
     "ng": "ng",
     "prestart:api": "echo 'ah que coucou'",
     "start:api": "pm2 restart ../api/long-api/game-api/bin/www",
-    "prestart": "npm run start:api",
+
+    "build:lib:player": "ng build player",
+    "build:libs": "npm run build:lib:player",
+
+    "prestart": "npm run build:libs && npm run start:api",
     "start": "echo 'coucou' && ng serve",
+
     "build": "ng build",
+
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
