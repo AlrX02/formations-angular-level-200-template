@@ -1,0 +1,8 @@
+<form [formGroup]="weaponForm">
+  <input type="text" formControlName="label">
+  <input type="number" formControlName="power">
+
+  <button (click)="clickToSet()">Set</button>
+  <button (click)="clickToPatch()">Patch</button>
+  <button (click)="clickToSave()" [disabled]="!weaponForm.valid">Enregistrer</button>
+</form>
