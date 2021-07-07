@@ -14,6 +14,7 @@ import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
 import { TrooperModule } from './features/troopers/trooper/trooper.module';
 import { PlayerModule } from 'player';
+import { WeaponModule } from './features/weapon/weapon.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +29,7 @@ import { PlayerModule } from 'player';
     GameModule,
     TrooperModule,
     PlayerModule,
+    WeaponModule,
     StoreModule.forRoot(reducers, {
       metaReducers
     })
