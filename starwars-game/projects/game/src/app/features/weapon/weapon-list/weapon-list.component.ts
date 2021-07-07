@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WeaponService } from '../services/weapon.service';
 
 @Component({
   selector: 'game-weapon-list',
@@ -8,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 export class WeaponListComponent implements OnInit {
   items: { id: number, label: string }[] = [];
 
-  constructor() { }
+  constructor(private service: WeaponService) { }
 
   ngOnInit(): void {
+    // this.service.getAll().subscribe(data => this.items = data);
+    this.service.getOne(1).subscribe();
   }
 
 }

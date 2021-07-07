@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { WeaponListComponent } from './weapon-list/weapon-list.component';
+import { WeaponService } from './services/weapon.service';
 
 
 
@@ -10,6 +11,9 @@ import { WeaponListComponent } from './weapon-list/weapon-list.component';
   ],
   imports: [
     CommonModule
+  ],
+  providers: [
+    WeaponService
   ],
   exports: [
     WeaponListComponent
