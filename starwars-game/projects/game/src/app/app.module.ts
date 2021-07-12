@@ -13,6 +13,9 @@ import { TestComponent } from './tests/components/test/test.component';
 import { TestService } from './tests/services/test.service';
 import { M1Module } from './tests/modules/m1/m1.module';
 import { M2Module } from './tests/modules/m2/m2.module';
+import { FormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
 
 @NgModule({
   declarations: [
@@ -24,10 +27,14 @@ import { M2Module } from './tests/modules/m2/m2.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     HttpClientModule,
     GameModule,
     M1Module,
-    M2Module
+    M2Module,
+    StoreModule.forRoot(reducers, {
+      metaReducers
+    })
   ],
   providers: [
   ],
