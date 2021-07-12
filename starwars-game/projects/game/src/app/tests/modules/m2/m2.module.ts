@@ -12,9 +12,6 @@ import { TestService } from '../../services/test.service';
   imports: [
     CommonModule
   ],
-  providers: [
-    TestService
-  ],
   exports: [
     C2Component
   ]

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { C1Component } from './c1/c1.component';
+import { TestService } from '../../services/test.service';
 
 
 
@@ -10,6 +11,9 @@ import { C1Component } from './c1/c1.component';
   ],
   imports: [
     CommonModule
+  ],
+  providers: [
+    TestService
   ],
   exports: [
     C1Component

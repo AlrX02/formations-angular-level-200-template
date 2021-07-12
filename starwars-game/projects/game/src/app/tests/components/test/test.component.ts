@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { TestService } from '../../services/test.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { TestService } from '../../services/test.service';
 })
 export class TestComponent implements OnInit {
 
-  constructor() { }
+  constructor(private test:TestService) { }
 
   ngOnInit(): void {
   }
