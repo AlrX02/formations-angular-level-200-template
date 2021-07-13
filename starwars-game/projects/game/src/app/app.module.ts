@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -20,6 +20,7 @@ import { DroideModule } from './features/droides/droide/droide.module';
 import { EffectsModule } from '@ngrx/effects';
 import { DroidesEffect } from './features/droides/store/effects/droide.effects';
 import { AuthenticateModule } from './features/authenticate/authenticate.module';
+import { AuthInterceptor } from './shared/https/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,9 @@ import { AuthenticateModule } from './features/authenticate/authenticate.module'
     ])
   ],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true
+    }
   ],
   bootstrap: [AppComponent, HeaderComponent, SideBarComponent]
 })
