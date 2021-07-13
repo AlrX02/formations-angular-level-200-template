@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { DroideDTO } from 'projects/game/src/app/core/models/droide.dto';
 import { ApplicationState } from 'projects/game/src/app/reducers';
-import { loadDroides } from '../../store/actions/droide.actions';
+import { requestToLoadDroides } from '../../store/actions/droide.actions';
 import { lesDroidesVivants, tousLesDroides } from '../../store/selectors/droide.selectors';
 
 @Component({
@@ -26,7 +26,7 @@ export class DroideListComponent implements OnInit {
   }
 
   addDroide() {
-    this.store.dispatch(loadDroides());
+    this.store.dispatch(requestToLoadDroides());
 
   }
 

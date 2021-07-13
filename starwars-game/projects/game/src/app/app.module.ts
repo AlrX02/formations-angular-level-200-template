@@ -17,6 +17,8 @@ import { FormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
 import { DroideModule } from './features/droides/droide/droide.module';
+import { EffectsModule } from '@ngrx/effects';
+import { DroidesEffect } from './features/droides/store/effects/droide.effects';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,10 @@ import { DroideModule } from './features/droides/droide/droide.module';
     DroideModule,
     StoreModule.forRoot(reducers, {
       metaReducers
-    })
+    }),
+    EffectsModule.forRoot([
+      DroidesEffect
+    ])
   ],
   providers: [
   ],
