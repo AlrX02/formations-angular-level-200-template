@@ -19,6 +19,7 @@ import { reducers, metaReducers } from './reducers';
 import { DroideModule } from './features/droides/droide/droide.module';
 import { EffectsModule } from '@ngrx/effects';
 import { DroidesEffect } from './features/droides/store/effects/droide.effects';
+import { AuthenticateModule } from './features/authenticate/authenticate.module';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { DroidesEffect } from './features/droides/store/effects/droide.effects';
     M1Module,
     M2Module,
     DroideModule,
+    AuthenticateModule,
     StoreModule.forRoot(reducers, {
       metaReducers
     }),
