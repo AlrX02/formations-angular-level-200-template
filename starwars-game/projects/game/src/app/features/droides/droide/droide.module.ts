@@ -10,6 +10,9 @@ import { DroideListComponent } from './droide-list/droide-list.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    DroideListComponent
   ]
 })
 export class DroideModule { }

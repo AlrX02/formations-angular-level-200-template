@@ -16,6 +16,7 @@ import { M2Module } from './tests/modules/m2/m2.module';
 import { FormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
+import { DroideModule } from './features/droides/droide/droide.module';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { reducers, metaReducers } from './reducers';
     GameModule,
     M1Module,
     M2Module,
+    DroideModule,
     StoreModule.forRoot(reducers, {
       metaReducers
     })

@@ -17,12 +17,17 @@ export class DroideListComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.pipe(
-      select(lesDroidesVivants)
+      select(lesDroidesVivants),
     ).subscribe(items =>
       this.lesDroides = items
     );
 
+    //this.store.dispatch(loadDroides());
+  }
+
+  addDroide() {
     this.store.dispatch(loadDroides());
+
   }
 
 }

@@ -1,1 +1,7 @@
-<p>droide-list works!</p>
+<h1>Droides</h1>
+<p *ngFor="let item of lesDroides">
+  {{ item.matricule }}
+</p>
+
+
+<button (click)="addDroide()">Add Droide</button>
